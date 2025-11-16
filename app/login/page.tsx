@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import AcmeLogo from '@/app/ui/acme-logo';
 import LoginForm from '@/app/ui/login-form';
+import { Suspense } from 'react';  // ADD THIS LINE
 
 export const metadata: Metadata = {
   title: 'Login',
@@ -8,6 +9,7 @@ export const metadata: Metadata = {
 
 export default function LoginPage() {
   return (
+    <Suspense fallback={<div>Loading...</div>}>  // ADD THIS LINE
     <main className="flex items-center justify-center md:h-screen">
       <div className="relative mx-auto flex w-full max-w-[400px] flex-col space-y-2.5 p-4 md:-mt-32">
         <div className="flex h-20 w-full items-end rounded-lg bg-blue-500 p-3 md:h-36">
@@ -18,5 +20,6 @@ export default function LoginPage() {
         <LoginForm />
       </div>
     </main>
+    </Suspense>  // ADD THIS LINE
   );
 }
